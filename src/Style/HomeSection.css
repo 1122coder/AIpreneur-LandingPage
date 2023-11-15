@@ -1,0 +1,62 @@
+/* HomeSection.css */
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.home-section {
+  height: 100vh;
+  background-image: url("../Assets/home.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden; /* Ensure text animation is not visible outside the container */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));
+}
+
+.content {
+  text-align: center;
+  z-index: 1;
+}
+
+.gradient-text {
+  font-size: 3rem; /* Adjust font size as needed */
+  font-family: 'Your-Unique-Font', sans-serif; /* Replace 'Your-Unique-Font' with an actual font name */
+  color: #fff; /* Adjust text color as needed */
+  margin-bottom: 10px;
+}
+
+.fade-in-out {
+  background: linear-gradient(to right, #4e9ef6, #8e44ad);
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: fadeInOut 4s infinite; /* Adjust animation duration as needed */
+}
+
+.cta-button {
+  padding: 15px 30px;
+  font-size: 18px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+}
