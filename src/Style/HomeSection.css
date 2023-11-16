@@ -31,7 +31,7 @@
 
 .home-section {
   height: 100vh;
-  background-image: url("../Assets/home.jpg");
+  background-image: url("../Assets/Home.gif");
   background-size: cover;
   background-position: center;
   display: flex;

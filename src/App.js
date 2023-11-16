@@ -4,6 +4,7 @@ import HomeSection from './Pages/Home';
 import Navbar from './Component/Navbar';
 import AboutUs from './Pages/About-Us';
 import SocialMediaIcons from './Component/SocailMediaIcon';
+import Portfolio from './Pages/Portfolio';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <HomeSection />
       <AboutUs />
       <SocialMediaIcons />
+      <Portfolio />
     </div>
   );
 }
