@@ -60,3 +60,27 @@
   display: block;
   margin: 0 auto;
 }
+
+.home-container {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 50px;
+}
+
+.drawing-line {
+  position: absolute;
+  background: linear-gradient(to right, #5f82ff, #09f430, #022c36, #7b86fe, #f6f7f7); /* Gradient color */
+  height: 5px;
+  transform-origin: 0 0;
+}
+
+
+
+
+
+
+
+
+
+
