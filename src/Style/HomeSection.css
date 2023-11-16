@@ -1,5 +1,25 @@
 /* HomeSection.css */
 
+
+/* Style for the logo container */
+.logo-container {
+  position: relative;
+  top: 20px; /* Adjust the top position */
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%; /* Round shape */
+  overflow: hidden;
+}
+
+/* Style for the logo image */
+.logo {
+  width: 200px; /* Adjust the width as needed */
+  height: 200px; /* Adjust the height as needed */
+  object-fit: cover;
+  border-radius: 50%; /* Round shape */
+}
+
+
 @keyframes fadeInOut {
   0%, 100% {
     opacity: 0;

@@ -2,6 +2,7 @@
 
 import React, {useState} from 'react';
 import '../Style/HomeSection.css'; // Import the CSS file
+import logoImage from '../Assets/logo.jpg'
 
 const HomeSection = () => {
   const [lineStyles, setLineStyles] = useState({});
@@ -33,9 +34,13 @@ const HomeSection = () => {
 
   return (
     <div className="home-section home-container" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+
       <div className="drawing-line" style={lineStyles}></div>
       <div className="overlay"></div>
       <div className="content">
+        <div className="logo-container">
+          <img src={logoImage} alt="Your Logo" className="logo" />
+        </div>
         <h1 className="gradient-text">
           Welcome to <span className="fade-in-out">AIPrenuer</span>
         </h1>
