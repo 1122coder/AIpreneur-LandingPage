@@ -3,7 +3,7 @@ import './App.css';
 import HomeSection from './Pages/Home';
 import Navbar from './Component/Navbar';
 import AboutUs from './Pages/About-Us';
-
+import SocialMediaIcons from './Component/SocailMediaIcon';
 
 function App() {
   return (
@@ -11,6 +11,7 @@ function App() {
       <Navbar />
       <HomeSection />
       <AboutUs />
+      <SocialMediaIcons />
     </div>
   );
 }
