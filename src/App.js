@@ -5,6 +5,7 @@ import Navbar from './Component/Navbar';
 import AboutUs from './Pages/About-Us';
 import SocialMediaIcons from './Component/SocailMediaIcon';
 import Portfolio from './Pages/Portfolio';
+import ContactUsForm from './Pages/SignUppage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <AboutUs />
       <SocialMediaIcons />
       <Portfolio />
+      <ContactUsForm />
     </div>
   );
 }

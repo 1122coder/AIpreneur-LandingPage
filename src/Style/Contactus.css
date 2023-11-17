@@ -1,0 +1,61 @@
+/* ContactUsForm.css */
+
+.contact-us-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .left-section {
+    flex-basis: 40%;
+    text-align: center;
+  }
+  
+  .signup-image {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 10px;
+  }
+  
+  .contact-heading {
+    font-size: 32px;
+    text-transform: uppercase;
+    background: linear-gradient(to right, #12343e, #010f1e); /* Gradient color */
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .contact-text {
+    color: transparent;
+    background-image: linear-gradient(to right, #12343e, #010f1e);
+    -webkit-background-clip: text;
+    animation: typing 5s infinite alternate;
+  }
+  
+  @keyframes typing {
+    0% {
+      filter: blur(2px);
+    }
+    100% {
+      filter: blur(0);
+    }
+  }
+  
+  .right-section {
+    flex-basis: 50%;
+  }
+  
+ 
+
+  /* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .contact-us-container {
+    flex-direction: column;
+  }
+
+  .left-section,
+  .right-section {
+    width: 100%;
+  }
+}
