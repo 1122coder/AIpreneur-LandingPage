@@ -1,64 +1,106 @@
-/* Portfolio.css */
+.portfolio-heading {
+  text-transform: uppercase; /* Convert to uppercase */
+  font-weight: 800;
+  font-size: 24px; /* Font size for Portfolio heading */
+  margin-bottom: 10px; /* Margin bottom for spacing */
+}
 
-.portfolio-container {
-    width: 80%;
-    margin: 20px auto; /* Adjust margin as needed */
-    padding: 20px;
+.services-text {
+  text-transform: uppercase; /* Convert to uppercase */
+  font-size: 16px; /* Font size for services text */
+  opacity: 0.7; /* Opacity for the text */
+  position: relative; /* Add position */
+}
+
+.horizontal-line {
+  position: absolute; /* Position the line */
+  width: 30%;
+  height: 1px;
+  background-color: #007bff; /* Blue color */
+  bottom: -20px; /* Align at the bottom of the text */
+  left: 35%;
+}
+
+.card-container {
+  margin-top: 70px; /* Adjust margin from the previous section */
+  margin-bottom: 50px; /* Adjust margin from the next section */
+  text-align: center;
+  background-color: #f7f7f7; /* Gray background color */
+  padding: 20px; /* Add padding as needed */
+}
+
+.card-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%; /* Display the whole section */
+}
+
+.card {
+  width: 500px; /* Adjusted card width */
+  height: 400px; /* Adjusted card height */
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Black shadow */
+  margin-top: 20px; /* Margin between cards */
+
+  /* Gradient border */
+  border: 1px solid;
+  border-image-slice: 1;
+  border-width: 3px;
+  border-image-source: linear-gradient(to right, #073756, #031510); /* Gradient shades */
+}
+
+.card-image {
+  width: 100%; /* Image width */
+  height: 70%; /* Adjusted image height */
+  object-fit: cover;
+}
+
+.card-details {
+  padding: 10px;
+}
+
+h3 {
+  margin: 0;
+}
+
+p {
+  margin: 5px 0;
+}
+
+.backward-button,
+.forward-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  color: #3498db; /* Forward and backward arrow color */
+  cursor: pointer;
+  outline: none;
+}
+
+.backward-button {
+  left: 10px;
+}
+
+.forward-button {
+  right: 10px;
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    padding: 15px; /* Adjust padding for tablets */
   }
-  
-  h2 {
-    text-align: center;
+}
+
+/* Styles for smaller screens (mobile devices) */
+@media (max-width: 576px) {
+  .card-container {
+    padding: 10px; /* Adjust padding for mobile */
   }
-  
-  .carousel {
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .project-showcase {
-    display: flex;
-    transition: transform 0.5s ease;
-  }
-  
-  .project-card {
-    min-width: 250px;
-    padding: 20px;
-    margin: 10px;
-    border-radius: 10px;
-    background-color: #f5f5f5; /* Light gray background */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Black shadow */
-    border: 2px solid transparent;
-    transition: border 0.3s ease, transform 0.5s ease;
-  }
-  
-  .project-card.active {
-    border: 2px solid #3498db; /* Highlighted border with gradient color */
-    transform: scale(1.1);
-  }
-  
-  .project-image {
-    width: 100%;
-    height: auto;
-  }
-  
-  .backward-button,
-  .forward-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: transparent;
-    border: none;
-    font-size: 24px;
-    color: #3498db; /* Color for arrows */
-    cursor: pointer;
-    outline: none;
-  }
-  
-  .backward-button {
-    left: 10px;
-  }
-  
-  .forward-button {
-    right: 10px;
-  }
-  
+}
