@@ -6,6 +6,7 @@ import AboutUs from './Pages/About-Us';
 import SocialMediaIcons from './Component/SocailMediaIcon';
 import Portfolio from './Pages/Portfolio';
 import ContactUsForm from './Pages/SignUppage';
+import Services from './Pages/services';
 
 function App() {
   return (
@@ -14,7 +15,10 @@ function App() {
       <HomeSection />
       <AboutUs />
       <SocialMediaIcons />
+      
       <Portfolio />
+      <Services />
+      
       <ContactUsForm />
     </div>
   );
