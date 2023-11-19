@@ -8,6 +8,7 @@ import Portfolio from './Pages/Portfolio';
 import ContactUsForm from './Pages/SignUppage';
 import Services from './Pages/services';
 import PopupComponent from './Component/Popup';
+import Footer from './Component/Footer';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Portfolio />
       <Services />
       <ContactUsForm />
+      <Footer />
     </div>
   );
 }

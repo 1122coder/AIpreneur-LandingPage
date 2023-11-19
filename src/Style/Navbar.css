@@ -1,79 +1,86 @@
 /* Navbar.css */
 
+/* Navbar container styles */
 .navbar {
-    background: linear-gradient(to right, #4e9ef6, #8e44ad);
-    overflow: hidden;
-    font-family: 'Your-Unique-Font', sans-serif;
-    padding: 10px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center; /* Center items vertically */
-  }
-  
+  background: linear-gradient(to right, #4e9ef6, #8e44ad);
+  overflow: hidden;
+  font-family: 'Your-Unique-Font', sans-serif;
+  padding: 10px 50px;
+  display: flex;
+  justify-content: space-between; /* Space out items horizontally */
+  align-items: center; /* Center items vertically */
+}
+
+/* Navbar links styles */
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin: 0 10px; /* Add spacing between links */
+  transition: border-bottom 0.3s;
+}
+
+.navbar a:hover {
+  border-bottom: 3px solid #fff;
+}
+
+/* Menu icon styles */
+.navbar .menu-icon {
+  display: none;
+  cursor: pointer;
+  font-size: 1.5rem; /* Adjust font size for the menu icon */
+}
+
+/* Navbar links container styles */
+.navbar-links {
+  display: flex;
+  align-items: center; /* Center items vertically */
+}
+
+/* Individual link styles */
+.navbar-links a {
+  display: block; /* Ensure links are block-level for spacing */
+  padding: 10px; /* Add padding for spacing */
+}
+
+/* Mobile view styles */
+.navbar-links-mobile {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 60px; /* Adjust distance from top */
+  right: 0; /* Position on the right side */
+  width: 200px; /* Adjust width as needed */
+  background-color: #333;
+  animation: slide-in 0.3s forwards; /* Animation for sliding in */
+}
+
+/* Media query for smaller screens */
+@media only screen and (max-width: 768px) {
   .navbar a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 0.9rem;
-    margin: 0 10px; /* Add spacing between links */
-    transition: border-bottom 0.3s;
+    display: none; /* Hide links for smaller screens */
   }
-  
-  .navbar a:hover {
-    border-bottom: 3px solid #fff;
-  }
-  
+
   .navbar .menu-icon {
-    display: none;
-    cursor: pointer;
-    font-size: 1.5rem; /* Adjust font size for the menu icon */
+    display: block; /* Show menu icon for smaller screens */
+    order: 1; /* Define order for flexibility */
   }
-  
+
   .navbar-links {
-    display: flex;
-    align-items: center; /* Center items vertically */
+    display: none; /* Hide links by default for small screens */
   }
-  
-  .navbar-links a {
-    display: block; /* Ensure links are block-level for spacing */
-    padding: 10px; /* Add padding for spacing */
-  }
-  
+
   .navbar-links-mobile {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 0; /* Position on the right side */
-    width: 200px; /* Adjust width as needed */
-    background-color: #333;
-    animation: slide-in 0.3s forwards;
+    display: flex; /* Show mobile links */
   }
-  
-  @media only screen and (max-width: 768px) {
-    .navbar a {
-      display: none;
+
+  /* Animation styles */
+  @keyframes slide-in {
+    from {
+      transform: translateX(100%); /* Slide in from the right */
     }
-  
-    .navbar .menu-icon {
-      display: block;
-      order: 1;
-    }
-  
-    .navbar-links {
-      display: none; /* Hide links by default for small screens */
-    }
-  
-    .navbar-links-mobile {
-      display: flex;
-    }
-  
-    @keyframes slide-in {
-      from {
-        transform: translateX(100%); /* Slide in from the right */
-      }
-      to {
-        transform: translateX(0);
-      }
+    to {
+      transform: translateX(0);
     }
   }
-  
+}

@@ -26,38 +26,31 @@ const PopupComponent = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      const response = await fetch('http://localhost:3001/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email }),
-      });
+    handleClose();
 
-      if (response.ok) {
-        setShowPopup(false); // Close the popup on successful submission
-        toast.success('Email sent successfully!');
-      } else {
-        toast.error('Failed to send email');
-      }
-    } catch (error) {
-      console.error('Error sending email:', error);
-      toast.error('Error sending email');
-    }
+    // Display toast message
+    toast.success('Email submitted successfully!', {
+      position: 'bottom-right',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   };
 
   return (
     <Dialog open={open} onClose={handleClose}>
       <DialogTitle>
         <div className="popup-header">Subscribe to Prompt ideas for free</div>
-        <IconButton aria-label="close" onClick={handleClose}>
+        <IconButton aria-label="close" onClick={handleClose} className="close-button">
           <CloseIcon />
         </IconButton>
       </DialogTitle>
       <DialogContent>
         <TextField
-          label="Email"
+          label="Enter your email"
           variant="outlined"
           value={email}
           onChange={(e) => setEmail(e.target.value)}

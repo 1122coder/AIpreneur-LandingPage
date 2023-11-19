@@ -10,33 +10,47 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <div className="navbar">
       <div className="navbar-links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#contact">Contact</a>
+        <a href="#home" onClick={closeMenu}>
+          Home
+        </a>
+        <a href="#about" onClick={closeMenu}>
+          About
+        </a>
+        <a href="#services" onClick={closeMenu}>
+          Services
+        </a>
+        <a href="#portfolio" onClick={closeMenu}>
+          Portfolio
+        </a>
+        <a href="#contact" onClick={closeMenu}>
+          Contact
+        </a>
       </div>
       <div className="menu-icon" onClick={toggleMenu}>
-        &#9776; {/* This is the hamburger icon */}
+        &#9776;
       </div>
       {isMenuOpen && (
         <div className="navbar-links-mobile">
-          <a href="#home" onClick={toggleMenu}>
+          <a href="#home" onClick={closeMenu}>
             Home
           </a>
-          <a href="#about" onClick={toggleMenu}>
+          <a href="#about" onClick={closeMenu}>
             About
           </a>
-          <a href="#services" onClick={toggleMenu}>
+          <a href="#services" onClick={closeMenu}>
             Services
           </a>
-          <a href="#portfolio" onClick={toggleMenu}>
+          <a href="#portfolio" onClick={closeMenu}>
             Portfolio
           </a>
-          <a href="#contact" onClick={toggleMenu}>
+          <a href="#contact" onClick={closeMenu}>
             Contact
           </a>
         </div>
