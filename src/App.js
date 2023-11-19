@@ -7,18 +7,18 @@ import SocialMediaIcons from './Component/SocailMediaIcon';
 import Portfolio from './Pages/Portfolio';
 import ContactUsForm from './Pages/SignUppage';
 import Services from './Pages/services';
+import PopupComponent from './Component/Popup';
 
 function App() {
   return (
     <div className="App">
       <Navbar />
+      <PopupComponent />
       <HomeSection />
       <AboutUs />
       <SocialMediaIcons />
-      
       <Portfolio />
       <Services />
-      
       <ContactUsForm />
     </div>
   );

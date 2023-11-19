@@ -1,0 +1,31 @@
+.popup {
+    width: 500px;
+    height: 400px;
+    background-color: lightblue;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px; /* Rounded corners */
+  }
+  
+  .popup-header {
+    font-size: 28px; /* Larger font size */
+    font-weight: 800; /* Bold font weight */
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #4e54c8, #8f94fb); /* Gradient color */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .email-input {
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #4e54c8; /* Blue border */
+    border-radius: 5px; /* Rounded border */
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
