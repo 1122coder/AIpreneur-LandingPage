@@ -79,7 +79,7 @@ const Portfolio = () => {
       </Row>
       <Row className="mt-4">
         <Col className="text-center">
-          <Button variant="primary" onClick={nextCards}>Next</Button>
+          <Button variant="outline-success" onClick={nextCards}>Next</Button>
         </Col>
       </Row>
     </Container>

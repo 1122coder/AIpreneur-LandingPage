@@ -1,11 +1,42 @@
 import React, { useState } from 'react';
-import { TextField, Button, RadioGroup, FormControlLabel, Radio } from '@mui/material';
+import { TextField, Button, RadioGroup, FormControlLabel, Radio, createTheme, ThemeProvider } from '@mui/material';
 import '../Style/Contactus.css';
 import SignupImage from '../Assets/678.jpg';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 const ContactUsForm = () => {
+// Create a theme instance.
+        const theme = createTheme({
+          palette: {
+            primary: {
+              main: '#007bff', // Use your primary blue color here
+            },
+          },
+          components: {
+            MuiTextField: {
+              styleOverrides: {
+                root: {
+                  '& .MuiOutlinedInput-root': {
+                    '& fieldset': {
+                      borderColor: 'blue', // Custom outline color
+                      borderRadius: '8px', // Slightly rounded borders for the TextField
+                    },
+                    '&:hover fieldset': {
+                      borderColor: 'darkblue', // Darker outline on hover
+                    },
+                    '&.Mui-focused fieldset': {
+                      borderColor: 'blue', // Outline color when the TextField is focused
+                    },
+                  },
+                },
+              },
+            },
+          },
+        });
+
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -78,68 +109,74 @@ const ContactUsForm = () => {
   };
 
   return (
-    <div className="contact-us-container">
-      <div className="left-section">
-        <img src={SignupImage} alt="Signup" className="signup-image" />
-        <h1 className="contact-heading">Contact Us</h1>
-        <p className="contact-text">
-        Contact us today and <span className="typing-text">experience the difference</span>
-      </p>
-      </div>
-      <div className="right-section">
-        <form className="contact-form" onSubmit={handleSubmit}>
-          <div className="text-fields">
+    <ThemeProvider theme={theme}>
+      <div className="contact-us-container">
+        <div className="left-section">
+          <img src={SignupImage} alt="Signup" className="signup-image" />
+          <h1 className="contact-heading">Contact Us</h1>
+          <p className="contact-text">
+            Contact us today and <span className="typing-text">experience the difference</span>
+          </p>
+        </div>
+        <div className="right-section">
+          <form className="contact-form" onSubmit={handleSubmit}>
+            <div className="text-fields">
+              <TextField
+                label="First Name *"
+                variant="outlined"
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleInputChange}
+                error={!!errors.firstName}
+                helperText={errors.firstName}
+                fullWidth
+                margin="normal"
+              />
+              <TextField
+                label="Last Name *"
+                variant="outlined"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleInputChange}
+                error={!!errors.lastName}
+                helperText={errors.lastName}
+                fullWidth
+                margin="normal"
+              />
+            </div>
             <TextField
-              label="First Name *"
-              variant="filled"
-              name="firstName"
-              value={formData.firstName}
+              label="Email *"
+              variant="outlined"
+              name="email"
+              value={formData.email}
               onChange={handleInputChange}
-              error={!!errors.firstName}
-              helperText={errors.firstName}
-              sx={{ mr: 2, width: 'calc(50% - 8px)' }}
+              error={!!errors.email}
+              helperText={errors.email}
+              fullWidth
+              margin="normal"
             />
+            <RadioGroup row value={formData.gender} onChange={handleInputChange} name="gender">
+              <FormControlLabel value="male" control={<Radio />} label="Male" />
+              <FormControlLabel value="female" control={<Radio />} label="Female" />
+            </RadioGroup>
             <TextField
-              label="Last Name *"
-              variant="filled"
-              name="lastName"
-              value={formData.lastName}
+              label="Message"
+              variant="outlined"
+              multiline
+              rows={4}
+              name="message"
+              value={formData.message}
               onChange={handleInputChange}
-              error={!!errors.lastName}
-              helperText={errors.lastName}
-              sx={{ width: 'calc(50% - 8px)' }}
+              fullWidth
+              margin="normal"
             />
-          </div>
-          <TextField
-            label="Email *"
-            variant="filled"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            error={!!errors.email}
-            helperText={errors.email}
-            sx={{ width: '100%', mb: 2, mt: 2 }}
-          />
-          <RadioGroup value={formData.gender} onChange={handleInputChange} name="gender" error={!!errors.gender}>
-            <FormControlLabel value="male" control={<Radio />} label="Male" />
-            <FormControlLabel value="female" control={<Radio />} label="Female" />
-          </RadioGroup>
-          <TextField
-            label="Message"
-            variant="filled"
-            multiline
-            rows={4}
-            name="message"
-            value={formData.message}
-            onChange={handleInputChange}
-            sx={{ width: '100%', mb: 2 }}
-          />
-          <Button type="submit" variant="contained" color="primary">
-            Submit
-          </Button>
-        </form>
+            <Button type="submit" variant="contained" color="primary">
+              Submit
+            </Button>
+          </form>
+        </div>
       </div>
-    </div>
+    </ThemeProvider>
   );
 };
 
