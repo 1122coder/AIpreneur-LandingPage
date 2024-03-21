@@ -1,0 +1,51 @@
+.tech-stack-section {
+  text-align: center;
+  padding: 2rem 0; /* Top and bottom padding */
+}
+
+.teck-stack-container {
+  text-align: center;
+  width: 100%;
+}
+
+.tech-stack-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.tech-stack-line {
+  width: 50%;
+  border: 0;
+  border-bottom: 2px solid black;
+  margin: 20px auto; /* Center the line */
+}
+
+
+.tech-stack-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; /* This will add equal spacing around items */
+  align-items: center;
+  max-width: 800px; /* Maximum width of the container */
+  margin: auto; /* This will center the container on the page */
+  
+}
+
+.tech-stack-icon {
+  margin: 1rem; /* Margin around each logo */
+  width: calc(25% - 4rem); /* Four logos per row, minus the margin */
+  height: auto; /* Maintain aspect ratio of images */
+}
+
+@media (max-width: 768px) {
+  .tech-stack-icon {
+    width: calc(20% - 4rem); /* Two logos per row on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .tech-stack-icon {
+    width: calc(100% - 2rem); /* One logo per row on very small screens */
+  }
+}

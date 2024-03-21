@@ -9,6 +9,7 @@ import ContactUsForm from './Pages/SignUppage';
 import Services from './Pages/services';
 import PopupComponent from './Component/Popup';
 import Footer from './Component/Footer';
+import TechnologyStack from './Pages/TechnologyStack';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <SocialMediaIcons />
       <Portfolio />
       <Services />
+      <TechnologyStack />
       <ContactUsForm />
       <Footer />
     </div>
