@@ -4,37 +4,39 @@ import '../Style/Contactus.css';
 import SignupImage from '../Assets/678.jpg';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { getDatabase, ref, push } from 'firebase/database';
+
 
 
 const ContactUsForm = () => {
-// Create a theme instance.
-        const theme = createTheme({
-          palette: {
-            primary: {
-              main: '#007bff', // Use your primary blue color here
-            },
-          },
-          components: {
-            MuiTextField: {
-              styleOverrides: {
-                root: {
-                  '& .MuiOutlinedInput-root': {
-                    '& fieldset': {
-                      borderColor: 'blue', // Custom outline color
-                      borderRadius: '8px', // Slightly rounded borders for the TextField
-                    },
-                    '&:hover fieldset': {
-                      borderColor: 'darkblue', // Darker outline on hover
-                    },
-                    '&.Mui-focused fieldset': {
-                      borderColor: 'blue', // Outline color when the TextField is focused
-                    },
-                  },
-                },
+  // Create a theme instance.
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#007bff', // Use your primary blue color here
+      },
+    },
+    components: {
+      MuiTextField: {
+        styleOverrides: {
+          root: {
+            '& .MuiOutlinedInput-root': {
+              '& fieldset': {
+                borderColor: 'blue', // Custom outline color
+                borderRadius: '8px', // Slightly rounded borders for the TextField
+              },
+              '&:hover fieldset': {
+                borderColor: 'darkblue', // Darker outline on hover
+              },
+              '&.Mui-focused fieldset': {
+                borderColor: 'blue', // Outline color when the TextField is focused
               },
             },
           },
-        });
+        },
+      },
+    },
+  });
 
 
   const [formData, setFormData] = useState({
@@ -75,16 +77,10 @@ const ContactUsForm = () => {
     const isValid = handleValidation();
 
     if (isValid) {
-      try {
-        const response = await fetch('http://localhost:3001/submit-form', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
-        });
-
-        if (response.ok) {
+      const db = getDatabase();
+      const formDataRef = ref(db, 'contactUsForms');
+      push(formDataRef, formData)
+        .then(() => {
           toast.success('Form data successfully submitted!');
           setFormData({
             firstName: '',
@@ -93,15 +89,14 @@ const ContactUsForm = () => {
             gender: '',
             message: '',
           });
-        } else {
-          throw new Error('Failed to submit form');
-        }
-      } catch (error) {
-        console.error('Error submitting form:', error.message);
-        toast.error('Failed to submit form!');
-      }
+        })
+        .catch((error) => {
+          console.error('Error submitting form to Firebase:', error.message);
+          toast.error('Failed to submit form!');
+        });
     }
   };
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
