@@ -1,72 +1,100 @@
-import React, { useState } from 'react';
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
-// Make sure to import the Bootstrap CSS in your index.js or App.js
+import React, { useState, useEffect } from 'react';
+import { Container, Row, Col, Card } from 'react-bootstrap';
+// Ensure you have imported the Bootstrap CSS in your project entry file (e.g., index.js or App.js)
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import Img1 from '../Assets/web.png';
 import Img2 from '../Assets/R.jpg';
 import Img3 from '../Assets/Fb.jpg';
+
 const projects = [
-  { id: 1, title: 'Project 1', description: 'Description of Project 1...', image: Img1 },
-  { id: 2, title: 'Project 2', description: 'Description of Project 2...', image: Img2 },
-  { id: 3, title: 'Project 3', description: 'Description of Project 3...', image: Img3 },
-  { id: 4, title: 'Project 4', description: 'Description of Project 4...', image: "" },
+  { id: 1, title: 'Webwork Website', description: 'Description of Project 1...', image: Img1 },
+  { id: 2, title: 'Bone Fractured Detection Model', description: 'Description of Project 2...', image: Img2 },
+  { id: 3, title: 'Echo App', description: 'Description of Project 3...', image: Img3 },
+  { id: 4, title: 'File Manager App', description: 'Description of Project 4...', image: "" },
+  { id: 5, title: 'Practical Pro Website', description: 'Description of Project 5...', image: "" },
 ];
 
 const Portfolio = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovering, setIsHovering] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!isHovering) { // Only proceed if not hovering
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % projects.length);
+      }
+    }, 1000); // Change slides every 3 seconds
+
+    return () => clearInterval(interval); // Clean up the interval on component unmount
+  }, [isHovering]); // Effect depends on isHovering state
+
+  // Calculate the projects to display
+  const displayedProjects = [];
+  for (let i = 0; i < 3; i++) {
+    displayedProjects.push(projects[(currentIndex + i) % projects.length]);
+  }
+
+  // Styles
+  const containerStyle = {
+    backgroundColor: '#76ABAE', // Background color for the Portfolio section
+    width: '100%', // Ensure the container is full-width
+    padding: '0', // Remove default padding if necessary
+    height: '600px'
+  };
+
 
   const titleStyle = {
-    fontSize: '2.5rem', // Adjust the size as needed
+    fontSize: '2.5rem',
     fontWeight: 'bold',
-    margin: '0'
+    margin: '0',
+    color: '#FFFFFF', // Adjusted for better visibility on the new background
+    paddingTop: '30px'
   };
 
   const lineStyle = {
-    width: '50%', // Adjust the width as needed
+    width: '50%',
     border: '0',
-    borderBottom: '2px solid black',
-    margin: '20px auto', // Center the line
+    borderBottom: '2px solid #FFFFFF', // Adjusted for visibility
+    margin: '20px auto',
   };
 
   const subTitleStyle = {
-    fontSize: '2rem', // Adjust the size as needed for the subtitle
+    fontSize: '2rem',
     fontWeight: 'bold',
-    color: 'gray', // Adjust the color as needed
-    marginTop: '0.5rem', // Space between the line and subtitle
-  };
-
-  const nextCards = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 3) % projects.length);
+    color: '#F0F0F0', // Adjusted for better visibility
+    marginTop: '0.5rem',
   };
 
   const cardStyle = {
-    borderRadius: '20px', // Adjust this value to match the border-radius in your design
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // This adds a subtle shadow effect
-    borderColor: '#007bff', // This should be the color of the border you want
+    borderRadius: '20px',
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+    borderColor: '#007bff',
+    margin: '0 20px', // Increased margin for left and right
+    padding: '20px', // Added padding inside the card for content
   };
-
   const imgStyle = {
-    height: '200px', // Adjust according to your design
+    height: '200px',
     objectFit: 'cover',
-    borderTopLeftRadius: '20px', // Match this with the card border radius
-    borderTopRightRadius: '20px', // Match this with the card border radius
+    borderTopLeftRadius: '20px',
+    borderTopRightRadius: '20px',
   };
-
 
   return (
-    <Container className="py-5">
+    <Container fluid style={containerStyle} className="px-0"> {/* Added fluid and removed padding for full width */}
       <Row className="justify-content-center mb-12">
         <Col md={12} className="text-center">
-          <h2 style={titleStyle} className="text-indigo-600 font-semibold tracking-wide uppercase">
+          <h2 style={titleStyle} className="font-semibold tracking-wide uppercase">
             Portfolio
           </h2>
           <hr style={lineStyle} />
           <p style={subTitleStyle}>Our Recent Projects</p>
         </Col>
       </Row>
-      <Row xs={1} md={2} lg={3} className="g-4">
-        {projects.slice(currentIndex, currentIndex + 3).map((project) => (
-          <Col key={project.id}>
+      <Row xs={1} md={2} lg={3} className="g-4"
+           onMouseEnter={() => setIsHovering(true)}
+           onMouseLeave={() => setIsHovering(false)}>
+        {displayedProjects.map((project, index) => (
+          <Col key={index}>
             <Card style={cardStyle}>
               <Card.Img variant="top" src={project.image} alt={project.title} style={imgStyle} />
               <Card.Body>
@@ -76,11 +104,6 @@ const Portfolio = () => {
             </Card>
           </Col>
         ))}
-      </Row>
-      <Row className="mt-4">
-        <Col className="text-center">
-          <Button variant="outline-success" onClick={nextCards}>Next</Button>
-        </Col>
       </Row>
     </Container>
   );
