@@ -1,7 +1,7 @@
 // AboutUs.jsx
 import React from 'react';
 import '../Style/AboutUs.css';
-import backgroundImage from '../Assets/comp.jpg';
+import backgroundImage from '../Assets/comp.jpeg';
 import { Element } from 'react-scroll';
 
 const AboutUs = () => {

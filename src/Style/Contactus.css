@@ -1,10 +1,30 @@
 /* ContactUsForm.css */
 
+
+.contact-us-title-container {
+  text-align: center;
+  width: 100%;
+}
+
+.contact-us-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.contact-us-title-line {
+  width: 50%;
+  border: 0;
+  border-bottom: 2px solid black;
+  margin: 20px auto; /* Center the line */
+}
+
 .contact-us-container {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   
   .left-section {
@@ -13,9 +33,10 @@
   }
   
   .signup-image {
-    width: 100%;
-    max-width: 300px;
-    margin-bottom: 10px;
+    width: 100%; /* Make the image fully responsive */
+    max-height: 400px; /* Increase max height for larger display */
+    object-fit: cover; /* Ensure the image covers the area nicely */
+    border-radius: 8px; /* Optional: Adds rounded corners for a softer look */
   }
   
   .contact-heading {
@@ -51,7 +72,7 @@
   /* Media queries for responsiveness */
 @media (max-width: 768px) {
   .contact-us-container {
-    flex-direction: column;
+    flex-direction: row;
   }
 
   .left-section,
